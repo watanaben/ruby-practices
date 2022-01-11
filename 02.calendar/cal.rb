@@ -33,13 +33,12 @@ puts "      #{month}月 #{year}"
 puts "日 月 火 水 木 金 土"
 
 # 初日のプリント
-print " #{day.day}" if day.sunday? # 日曜
-print "    #{day.day}" if day.monday? # 月曜
-print "       #{day.day}" if day.tuesday? # 火曜
-print "          #{day.day}" if day.wednesday? # 水曜
-print "             #{day.day}" if day.thursday? # 木曜
-print "                #{day.day}" if day.friday? # 金曜
-puts  "                   #{day.day}" if day.saturday? # 土曜
+if day.sunday?
+  print ' '
+else
+  print ' ' * (day.cwday * 3 + 1)
+end
+print day.day.to_s
 
 # 2日以降のプリント
 day = day + 1
