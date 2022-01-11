@@ -43,18 +43,10 @@ print day.day.to_s
 # 2日以降のプリント
 day = day + 1
 while day <= last_day do
-  if day.day < 10
-    if day.sunday?
-      print " #{day.day}"
-    else
-      print "  #{day.day}"
-    end
+  if day.sunday?
+    print day.day.to_s.rjust(2)
   else
-    if day.sunday?
-      print "#{day.day}"
-    else
-      print " #{day.day}"
-    end
+    print day.day.to_s.rjust(3)
   end
   if day.saturday?
     puts ""
