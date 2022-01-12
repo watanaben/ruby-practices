@@ -33,24 +33,14 @@ puts "      #{month}月 #{year}"
 puts "日 月 火 水 木 金 土"
 
 # 初日のプリント
-if day.sunday?
-  print ' '
-else
-  print ' ' * (day.cwday * 3 + 1)
-end
-print day.day.to_s
+print (' ' * (day.wday * 3 + 1) + day.day.to_s)
+puts "" if day.saturday?
 
 # 2日以降のプリント
 day = day + 1
 while day <= last_day do
-  if day.sunday?
-    print day.day.to_s.rjust(2)
-  else
-    print day.day.to_s.rjust(3)
-  end
-  if day.saturday?
-    puts ""
-  end
+  print day.day.to_s.rjust(day.sunday? ? 2 : 3)
+  puts "" if day.saturday?
   day = day + 1
 end
 puts ""
