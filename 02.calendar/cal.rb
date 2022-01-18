@@ -19,11 +19,11 @@ last_day = Date.new(year,month,-1)
 
 puts "      #{month}月 #{year}"
 puts "日 月 火 水 木 金 土"
-print (' ' * (day.wday * 3 - 1 )) unless day.sunday?
+print (' ' * (day.wday * 3))
 
 while day <= last_day do
-  print day.day.to_s.rjust(day.sunday? ? 2 : 3)
-  puts "" if day.saturday?
+  print day.day.to_s.rjust(2)
+  print (day.saturday? ? "\n" : ' ')
   day = day + 1
 end
 puts ""
